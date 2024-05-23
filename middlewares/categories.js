@@ -50,13 +50,5 @@ const checkIsCategoryExists = async (req, res, next) => {
   }
 };
 
-const checkIfCategoriesAvaliable = async (req, res, next) => {
-  if (!req.body.categories || req.body.categories.length === 0) {
-    res.setHeader("Content-Type", "application/json");
-        res.status(400).send(JSON.stringify({ message: "Выберите хотя бы одну категорию" }));
-  } else {
-    next();
-  }
-};
 
-module.exports = {findAllCategories, createCategory, findCategoryById, deleteCategory, checkIsCategoryExists, checkIfCategoriesAvaliable};
+module.exports = {findAllCategories, createCategory, findCategoryById, deleteCategory, checkIsCategoryExists};
