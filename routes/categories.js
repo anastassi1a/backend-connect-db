@@ -16,7 +16,8 @@ const {
   checkIsCategoryExists
 } = require("../middlewares/categories");
 
-const checkAuth = require("../middlewares/auth")
+const { checkAuth } = require('../middlewares/auth');
+
 
 categoriesRouter.get("/categories", findAllCategories, sendAllCategories);
 categoriesRouter.post(

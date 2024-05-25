@@ -28,5 +28,12 @@ const sendMe = (req, res) => {
   res.end(JSON.stringify(req.user));
 };
 
-  module.exports = {sendAllUsers, sendUserCreated, sendUserUpdated, sendUserById, sendUserDeleted, sendMe};
+  module.exports = {
+    sendAllUsers, 
+    sendUserCreated, 
+    sendUserUpdated, 
+    sendUserById, 
+    sendUserDeleted, 
+    sendMe
+  };
   

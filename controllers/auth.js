@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const path = require("path");
-const bcrypt = require("bcryptjs")
 const user = require("../models/user")
 
 const login = (req, res) => {
