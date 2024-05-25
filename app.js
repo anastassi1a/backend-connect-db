@@ -19,15 +19,12 @@ const PORT = 3000;
 connectToDatabase();
 
 app.use(
-    cors,
-    cookieParser(),
-    bodyParser.json(),
-    pagesRouter,
-    apiRouter,
-    categoriesRouter,
-    gamesRouter,
-    usersRouter,
-    express.static(path.join(__dirname, "public"))
-  );
+  cors,
+  cookieParser(),
+  bodyParser.json(),
+  pagesRouter, // Добавляем роутер для страниц
+  apiRouter,
+  express.static(path.join(__dirname, "public"))
+);
 
 app.listen(PORT);

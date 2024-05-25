@@ -16,6 +16,24 @@ const createCategory = async (req, res, next) => {
   }
 };
 
+const updateCategory= async (req, res, next) => {
+  try {
+    req.category = await category.findByIdAndUpdate(req.params.id, req.body);
+    next();
+  } catch (error) {
+    res.status(400).send({ message: "Ошибка обновления пользователя" });
+  }
+};  
+
+const checkEmptyName = async (req, res, next) => {
+  if (!req.body.name) {
+    res.setHeader("Content-Type", "application/json");
+        res.status(400).send(JSON.stringify({ message: "Введите название категории" }));
+  } else {
+    next();
+  }
+};
+
 const findCategoryById = async (req, res, next) => {
   console.log("GET /categories/:id");
   try {
@@ -51,4 +69,4 @@ const checkIsCategoryExists = async (req, res, next) => {
 };
 
 
-module.exports = {findAllCategories, createCategory, findCategoryById, deleteCategory, checkIsCategoryExists};
+module.exports = {findAllCategories, createCategory, updateCategory, checkEmptyName, findCategoryById, deleteCategory, checkIsCategoryExists};
