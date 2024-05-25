@@ -9,9 +9,8 @@ async function connectToDatabase() {
   }
   catch (err) {
     console.log('При подключении MongoDB возникла ошибка')
-    console.error(err);
+    console.log(err);
   }
-  await mongoose.connect(DB_URL);
 }
 
 module.exports = connectToDatabase;
