@@ -1,27 +1,26 @@
+const connectToDatabase = require('./database/connect');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const usersRouter = require('./routes/users');
-const gamesRouter = require('./routes/games');
-const categoriesRouter = require('./routes/categories');
+const cookieParser = require("cookie-parser");
 
-const PORT = 3000;
+const cors = require("./middlewares/cors");
+
+const pagesRouter = require('./routes/pages');
+const apiRouter = require("./routes/api");
 
 const app = express();
-
+const PORT = 3000;
 
 connectToDatabase();
 
 app.use(
-    cors,
-    bodyParser.json(),
-    express.static(path.join(__dirname, 'public')),
-    usersRouter,
-    gamesRouter,
-    categoriesRouter
+  cors,
+  cookieParser(),
+  bodyParser.json(),
+  pagesRouter, 
+  apiRouter,
+  express.static(path.join(__dirname, "public"))
 );
 
-app.listen(PORT, () => {
-    console.log(`Server is running at PORT https://localhost:${PORT}`);
-}
-);
+app.listen(PORT);
