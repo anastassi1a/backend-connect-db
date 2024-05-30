@@ -1,4 +1,4 @@
-Ссылка на репозиторий с фронтендом: (https://github.com/anastassi1a/frontend)
+Ссылка на репозиторий с фронтендом: (https://github.com/anastassi1a/frontend/tree/last-review)
 
 Ссылка на домен фронтенда: https://frontend.nomoredomainswork.ru/
 
